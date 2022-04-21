@@ -13,17 +13,18 @@ export class WeatherFormComponent implements AfterViewInit {
   public latitude: number = 0;
   public longitude: number = 0;
   public date: any = new Date().toISOString().slice(0, 19); //Gets current date, slices off the ISO string Z
+  public results: any = [];
   public apiProviders: any = [
+    {name: "AccuWeather", checked: true}, // AccuWeather will be used as a "true weather" source
     {name: "OpenWeatherMap", checked: false},
     {name: "Tomorrow.io", checked: false},
     {name: "Stormglass", checked: false},
-    {name: "Yahoo Weather", checked: false},
-    {name: "AccuWeather", checked: false}
+    {name: "Yahoo Weather", checked: false}
   ];
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 39.8282, -98.5795 ],
+      center: [ 58.54, 25.35 ],
       zoom: 3
     });
 
@@ -56,6 +57,11 @@ export class WeatherFormComponent implements AfterViewInit {
     this.marker = L.marker([this.latitude, this.longitude]).addTo(this.map);
   }
 
+  getResults() {
+    console.log(this.results);
+    this.results.push("test");
+  }
+
   updateLat(event: any) {
     this.latitude = event.target.value
   }
@@ -65,10 +71,9 @@ export class WeatherFormComponent implements AfterViewInit {
   }
 
   toggleCheckBox(checkbox: any) {
-    checkbox['checked'] = !checkbox['checked'];
-  }
-
-  constructor() {
+    if (checkbox['name'] != "AccuWeather") {
+      checkbox['checked'] = !checkbox['checked'];
+    }
   }
 
   ngAfterViewInit(): void {

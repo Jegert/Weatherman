@@ -11,11 +11,13 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherFormComponent
+    WeatherFormComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

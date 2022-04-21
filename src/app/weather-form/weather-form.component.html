@@ -15,12 +15,12 @@
   </div>
   <div class="checkbox-list">
     <section *ngFor="let provider of this.apiProviders" class="checkbox-list">
-      <mat-checkbox color="primary" (click)="toggleCheckBox(provider)" class="example-margin">{{provider['name']}}</mat-checkbox>
+      <mat-checkbox [disabled]="provider['name'] == 'AccuWeather'" [checked]="provider['name'] == 'AccuWeather'" color="primary" (click)="toggleCheckBox(provider)" class="example-margin">{{provider['name']}}</mat-checkbox>
     </section>
   </div>
   <div class="button-list">
     <button mat-raised-button color="primary" (click)="showOnMap()">Show on map</button>
-    <button mat-raised-button color="primary">Compare weather</button>
+    <button mat-raised-button color="primary" (click)="getResults()" >Compare weather</button>
   </div>
   <div class="map-container">
     <div class="map-frame">
@@ -28,3 +28,5 @@
     </div>
   </div>
 </form>
+
+<app-results *ngIf="results.length != 0"></app-results>
