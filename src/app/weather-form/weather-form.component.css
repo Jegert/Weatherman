@@ -15,3 +15,22 @@
 .mat-form-field {
   margin: 10px;
 }
+
+.map-container {
+  width: 500px;
+  height: 500px;
+  margin: 20px;
+}
+
+.mat-checkbox {
+  margin: 5px;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
