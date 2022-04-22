@@ -8,10 +8,6 @@
       <mat-label>Longitude</mat-label>
       <input type="number" (input)="updateLon($event)" value="{{longitude}}" matInput>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Date range</mat-label>
-      <input type="datetime-local" value="{{date}}" matInput>
-    </mat-form-field>
   </div>
   <div class="checkbox-list">
     <section *ngFor="let provider of this.apiProviders" class="checkbox-list">
@@ -29,4 +25,4 @@
   </div>
 </form>
 
-<app-results *ngIf="results.length != 0"></app-results>
+<app-results *ngIf="results.length != 0" [latitude]="this.latitude" [longitude]="this.longitude" [results]="this.results"></app-results>
