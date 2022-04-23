@@ -6,8 +6,8 @@ This web application was made as an test task for CGI summer internship.
 ![weatherman](https://user-images.githubusercontent.com/47295604/164912779-262618a3-baab-4e5d-bb89-90cd800972aa.png)
 
 #### Any assumptions you made that were not clearly written in the task description  
-At first it was a bit confusing, where would you need to use back end for the application, because all the API-s can be called through the front end. After doing the task it was clear that all the API-s differ so much and it is so much cleaner to do the dirty work of making all the API-s look the same in the back end.
-###How to deploy/run your solution (Someone who knows nothing about the solution should be able to deploy it using your instructions)  
+At first it was a bit confusing, where would you need to use back end for the application, because all the API-s can be called through the front end. After doing the task it was clear that all the API-s differ so much and it is so much cleaner to do the dirty work of making all the API-s look the same in the back end.  
+#### How to deploy/run your solution (Someone who knows nothing about the solution should be able to deploy it using your instructions)  
 To run the Spring Boot server, run the **WeathermanSpringApplication.java** file found in **weatherman-spring/src/main/java/com/example/weathermanspring/**  
 For the Angular front end using IntelliJ Webstorm run the Angular CLI Server while in the folder **weatherman-angular**  
 #### How you solved the tasks, and how much time did different parts take
