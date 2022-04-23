@@ -1,9 +1,0 @@
-.results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-td, th{
-  padding: 10px;
-}
