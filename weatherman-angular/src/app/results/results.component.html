@@ -1,0 +1,40 @@
+<div class="results">
+  <h1>{{tableName}}</h1>
+  <table>
+    <tr>
+      <th>
+        <h3>Latitude: {{cur_lat}}</h3>
+      </th>
+      <th>
+        <h3>Longitude: {{cur_lon}}</h3>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <h3>Country: {{results[0].country}}</h3>
+      </th>
+      <th>
+        <h3>City: {{results[0].city}}</h3>
+      </th>
+    </tr>
+  </table>
+
+  <table matSort (matSortChange)="sortData($event)">
+    <tr>
+      <th mat-sort-header="provider">Provider</th>
+      <th mat-sort-header="weathertype">Weather Type</th>
+      <th mat-sort-header="temperature">Temperature</th>
+      <th mat-sort-header="rainfall">Raining</th>
+    </tr>
+
+    <tr *ngFor="let result of sortedData">
+      <td>{{result.provider}}</td>
+      <td>{{result.weatherType}}</td>
+      <td>{{result.temperature}}</td>
+      <td>{{result.rainFall}}</td>
+    </tr>
+  </table>
+
+  <button mat-raised-button *ngIf="tableName == 'Comparison'" (click)="buttonClick()" color="primary">Save Current Forecast (Hourly)</button>
+  <button mat-raised-button *ngIf="tableName == 'Saved forecast'" (click)="buttonClick()"  color="warn">Delete Saved Forecast</button>
+</div>

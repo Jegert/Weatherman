@@ -1,0 +1,32 @@
+<form class="weather-form">
+  <div class="input-list">
+    <mat-form-field appearance="fill">
+      <mat-label>Latitude</mat-label>
+      <input type="number" (input)="updateLat($event)" value="{{latitude}}" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Longitude</mat-label>
+      <input type="number" (input)="updateLon($event)" value="{{longitude}}" matInput>
+    </mat-form-field>
+  </div>
+  <div class="checkbox-list">
+    <section *ngFor="let provider of this.apiProviders" class="checkbox-list">
+      <mat-checkbox [disabled]="provider['name'] == 'AccuWeather'" [checked]="provider['name'] == 'AccuWeather'" color="primary" (click)="toggleCheckBox(provider)" class="example-margin">{{provider['name']}}</mat-checkbox>
+    </section>
+  </div>
+  <div class="button-list">
+    <button mat-raised-button color="primary" (click)="showOnMap()">Show on map</button>
+    <button mat-raised-button color="primary" (click)="getResults()" >Compare weather</button>
+  </div>
+  <div class="map-container">
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+  </div>
+</form>
+
+<!-- Comparison screen -->
+<app-results *ngIf="results.length != 0" [buttonClick]="this.saveCurrentForecast" [tableName]="'Comparison'" [results]="this.results"></app-results>
+
+<!-- Saved forecast -->
+<app-results *ngIf="saved.length != 0" [buttonClick]="this.deleteCurrentForecast" [tableName]="'Saved forecast'" [results]="this.saved"></app-results>
